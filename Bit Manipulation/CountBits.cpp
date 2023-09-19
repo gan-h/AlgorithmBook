@@ -3,13 +3,13 @@
 /*
   How it works:
   
-  Every time we subtract one from a binary number, the rightmost 1 turns to zero, and all the digits further
+  Every time we subtract one from a non-zero binary number, the rightmost 1 turns to zero, and all the digits further
   to the right change to 1.
   
   For example:
   1001000 - 1 = 1000111. 
      ^              ^^^
-     |              |||--> notice how all these digits turned to 1
+     |                |--> notice how all these digits turned to 1
      |
      |--> this is the rightmost 1.
 
@@ -34,13 +34,17 @@
 
 #include <cinttypes>
 
-int countBits(std::uint64_t input) {
+int countBits(uint64_t input) {
   int count = 0;
 
   while(input != 0) {
-    input = input & (input - 1);
+    input = turnOffRightMostBit(input);
     count++;
   }
 
   return count;
+}
+
+inline uint64_t turnOffRightMostBit(uint64_t input) {
+  return input & (input - 1);
 }
