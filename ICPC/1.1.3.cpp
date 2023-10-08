@@ -11,8 +11,8 @@ using namespace std;
   
   In this file is a backtracking with pruning solution.
   The main idea is that if you pick all pairs of two points from the 16, 
-  and then calculate the distance sum for the 14 remaining points. 
-  Your best distance sum is the minimum quantitiy: (a distance sum from the 14 points + the distance between the remaining two points)
+  and then calculate the best distance sum for the 14 remaining points. 
+  Your best distance sum is the minimum quantitiy: (the best distance sum for the 14 points + the distance between the remaining two points)
 
   Note that this has overlapping subproblems and can be optimized further with dynamic programming
 */
